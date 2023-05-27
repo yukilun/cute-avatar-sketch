@@ -1,5 +1,6 @@
-const dir = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'
 import options from '@/public/options.json'
+
+const dir = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'
 
 export function getRandomId() {
     const num = Math.floor(Math.random() * 9999); // avatar images from 0000 to 9999
