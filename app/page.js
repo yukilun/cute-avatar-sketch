@@ -7,8 +7,6 @@ import dir from "@/functions/helper.js";
 
 export default function Home() {
 
-  const dir = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'
-
   return (
     <Template isHomePage={true}>
       <div className="container w-[90%] max-w-[1000px] mx-auto flex flex-col items-center justify-between md:flex-row md:gap-5">
@@ -23,7 +21,7 @@ export default function Home() {
 
           <div className="mb-4 text-base md:text-2xl text-slate-500 w-full flex flex-col items-center gap-2">
             Quick Random Generation: 
-            <CodeBlock code={`http://${dir}/api/random`}/>
+            <CodeBlock code={`${process.env.PUBLIC_URL}/api/random`}/>
           </div>
             
           <div className="flex flex-col gap-4 md:gap-6 text-gray-800 text-xl md:text-4xl">
