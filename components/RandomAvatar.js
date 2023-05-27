@@ -3,7 +3,7 @@
 import { randomNumber } from '@/functions/helper';
 import React, { useEffect, useState } from 'react'
 
-export default function RandomImage() {
+export default function RandomAvatar() {
 
     const [imgNum, setImgNum] = useState('0000');
 

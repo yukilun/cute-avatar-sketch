@@ -1,4 +1,4 @@
-import RandomImage from "@/components/RandomImage";
+import RandomAvatar from "@/components/RandomAvatar";
 import Link from "next/link";
 import CodeBlock from "@/components/CodeBlock";
 import Template from "@/components/Template";
@@ -8,7 +8,7 @@ export default function Home() {
     <Template isHomePage={true}>
       <div className="container w-[90%] max-w-[1000px] mx-auto flex flex-col items-center justify-between md:flex-row">
         
-        <RandomImage />
+        <RandomAvatar />
 
         <div className="flex-grow max-w-full flex flex-col gap-8 items-center text-center"> 
 
