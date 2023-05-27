@@ -1,5 +1,5 @@
 {
-    "facial-expressions": [
+    "facial-expression": [
         "content", 
         "happy", 
         "laughter", 
@@ -11,40 +11,40 @@
         "wink", 
         "angry"
     ], 
-    "hairstyles": [
-        "generic short hair", 
-        "blunt bangs short hair", 
-        "curly short hair", 
-        "spiky short hair", 
-        "generic medium hair", 
-        "double ponytails medium hair", 
-        "curtain bangs medium hair", 
-        "wavy long hair",
-        "ponytail long hair",
+    "hairstyle": [
+        "generic-short-hair", 
+        "blunt-bangs-short-hair", 
+        "curly-short-hair", 
+        "spiky-short-hair", 
+        "generic-medium-hair", 
+        "double-ponytails-medium-hair", 
+        "curtain-bangs-medium-hair", 
+        "wavy-long-hair",
+        "ponytail-long-hair",
         "bald"
     ],
-    "facial-features": [
+    "facial-feature": [
         "none",
-        "mole on left chin",
-        "mole on right chin",
-        "mole on left cheek",
-        "mole on right cheek",
-        "mole at the center of forehead",
-        "scar on left chin",
-        "scar on right chin",
-        "bandage on left chin",
-        "bandage on right chin"
+        "mole-on-left-chin",
+        "mole-on-right-chin",
+        "mole-on-left-cheek",
+        "mole-on-right-cheek",
+        "mole-at-forehead",
+        "scar-on-left-chin",
+        "scar-on-right-chin",
+        "bandage-on-left-chin",
+        "bandage-on-right-chin"
     ],
-    "accessories": [
+    "accessory": [
         "none",
         "beret",
         "crown",
-        "snap hair clip",
-        "cap (forwards)",
-        "cap (backwards)",
+        "snap-hair-clip",
+        "cap-forwards",
+        "cap-backwards",
         "beanie",
-        "top hat",
-        "car ears headband",
-        "bow headband"
+        "top-hat",
+        "car-ears-headband",
+        "bow-headband"
     ] 
 }
