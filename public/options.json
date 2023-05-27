@@ -1,5 +1,5 @@
 {
-    "facial_expressions": [
+    "facial-expressions": [
         "content", 
         "happy", 
         "laughter", 
@@ -23,7 +23,7 @@
         "ponytail long hair",
         "bald"
     ],
-    "facial_features": [
+    "facial-features": [
         "none",
         "mole on left chin",
         "mole on right chin",

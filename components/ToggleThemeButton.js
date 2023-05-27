@@ -11,7 +11,7 @@ export default function ToggleThemeButton() {
 
   return (
     <button
-      className="flex items-center justify-center rounded-full border-2 border-cyan-400 border-opacity-0 p-2 transition-all duration-500 hover:border-opacity-100 hover:text-cyan-400"
+      className="w-[50px] h-[50px] z-40 flex items-center justify-center rounded-full border-2 border-transparent p-2 shadow-white transition-all duration-500 hover:border-yellow-600 hover:text-yellow-600 hover:shadow-xl"
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
     >
       {currentTheme === "dark" ? <BsFillSunFill /> : <BsFillMoonFill />}

@@ -2,16 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
+
 :root {
   --foreground-rgb: 70, 70, 70;
   --background-rgb: 244, 240, 232;
   --background-dots-rgb: 100, 100, 100;
 }
 
-[data-theme='dark'] {
+.dark {
     --foreground-rgb: 255, 255, 255;
     --background-rgb: 25, 29, 37;
-    --background-dots-rgb: 93, 95, 102;
+    --background-dots-rgb: 118, 120, 126;
 }
 
 body {
