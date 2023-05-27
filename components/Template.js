@@ -4,7 +4,7 @@ import Footer from './Footer'
 
 export default function Template({children, isHomePage}) {
   return (
-    <main className="min-h-screen w-full flex flex-col justify-between">
+    <main className="min-h-screen w-full flex flex-col justify-between gap-5">
       <Navbar isHomePage={isHomePage}/>
         {children}    
       <Footer />
