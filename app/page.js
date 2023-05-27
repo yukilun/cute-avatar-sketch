@@ -3,7 +3,12 @@ import Link from "next/link";
 import CodeBlock from "@/components/CodeBlock";
 import Template from "@/components/Template";
 
+import dir from "@/functions/helper.js";
+
 export default function Home() {
+
+  const dir = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'
+
   return (
     <Template isHomePage={true}>
       <div className="container w-[90%] max-w-[1000px] mx-auto flex flex-col items-center justify-between md:flex-row">
@@ -18,7 +23,7 @@ export default function Home() {
 
           <div className="mb-4 text-lg md:text-2xl text-slate-500 w-full flex flex-col items-center gap-2">
             Quick Random Generation: 
-            <CodeBlock code={'http://localhost:3000/api/random'}/>
+            <CodeBlock code={`http://${dir}/api/random`}/>
           </div>
             
           <div className="flex flex-col gap-6 text-gray-800 text-2xl md:text-4xl">

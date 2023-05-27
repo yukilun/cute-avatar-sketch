@@ -1,19 +1,26 @@
 'use client'
 import React, { useState } from 'react'
-import {MdContentCopy} from 'react-icons/md'
+import { BsClipboard , BsClipboardCheck } from 'react-icons/bs'
 // import { Tooltip } from 'react-tooltip'
+import Prism from "prismjs";
+import "./prism.css";
 
 export default function CodeBlock({code}) {
 
-    const [isCopied, setCopied] = useState(false);
+    const [isCopied, setCopied] = useState(false); 
 
   return (
-    <div className='max-w-full px-6 py-4 text-base rounded-md bg-slate-900 dark:bg-slate-700 text-white flex items-center justify-between gap-4'>
-        <div className='min-w-0 overflow-auto'><pre>{code}</pre></div>
+    <div className='max-w-full p-1 text-sm lg:text-base rounded-md bg-[#2d2d2d] text-gray-400 flex items-center justify-between gap-3'>
+        <div className='min-w-0 overflow-auto'>
+            <pre>
+                <code className="language-js">
+                    {code}
+                </code>
+            </pre>
+        </div>
         <div className='h-full'>
-            {!isCopied ? (
             <button 
-                className='w-[50px] flex-grow-0 flex-shrink-0 flex items-center justify-end hover:text-cyan-400' 
+                className={'pr-4 flex-grow-0 flex-shrink-0 flex items-center justify-end relative hover:text-white ' + (isCopied ? 'copied' : 'copy')}
                 onClick={()=>{
                     setCopied(false);
                     navigator.clipboard.writeText(code)
@@ -25,10 +32,8 @@ export default function CodeBlock({code}) {
                     .catch(()=> console.log('cannot copy'))
                     }}
             >
-                <MdContentCopy/>
-            </button>) : (
-                <pre className='w-[50px] flex-grow-0 flex-shrink-0 text-cyan-400'>Copied!</pre>
-            )}
+                {!isCopied ? (<BsClipboard size={20}/>): (<BsClipboardCheck size={20} className='text-cyan-400'/>)}
+            </button>
         </div>
     </div>
 

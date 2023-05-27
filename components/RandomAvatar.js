@@ -1,6 +1,6 @@
 'use client'
 
-import { randomNumber } from '@/functions/helper';
+import { getRandomId } from '@/functions/helper';
 import React, { useEffect, useState } from 'react'
 
 export default function RandomAvatar() {
@@ -10,7 +10,7 @@ export default function RandomAvatar() {
     useEffect(()=> {
         
         const timer = setInterval(()=> {
-            const newImgNum = randomNumber();
+            const newImgNum = getRandomId();
             setImgNum(newImgNum);
         }, 1000);
 
