@@ -7,7 +7,7 @@ import dir from "@/functions/helper.js";
 
 export default function Home() {
 
-  const dir = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'
+  const dir = process.env.VERCEL_URL || 'localhost:3000'
 
   return (
     <Template isHomePage={true}>
