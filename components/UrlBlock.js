@@ -1,5 +1,5 @@
-"use client"
-//break-all 
+"use client";
+//break-all
 import React, { useState } from "react";
 import { BsClipboard, BsClipboardCheck } from "react-icons/bs";
 import Link from "next/link";
@@ -9,18 +9,25 @@ export default function URLBlock({ urlArr, urlHighlight }) {
   const url = process.env.NEXT_PUBLIC_URL + urlArr.join("");
 
   return (
-    <div className="flex w-fit max-w-full items-center justify-between gap-4 rounded-md bg-slate-700 px-4 py-3 text-sm text-gray-300 text-left lg:text-base ">
+    <div className="flex w-fit max-w-full items-center justify-between gap-4 rounded-md bg-slate-700 px-4 py-3 text-left text-sm text-gray-300 lg:text-base ">
       <div className="min-w-0 max-w-full font-mono">
-        <Link href={url}>
-          <span className="break-all">{process.env.NEXT_PUBLIC_URL}<wbr/></span>
-          {urlHighlight.map((isHightlight, index) => {
-            return isHightlight == 1 ? (
-              <span key={index} className="text-orange-400">{urlArr[index]}<wbr/></span>
-            ) : (
-              <span key={index}>{urlArr[index]}<wbr/></span>
-            );
-          })}
-        </Link>
+        <span className="break-all">
+          {process.env.NEXT_PUBLIC_URL}
+          <wbr />
+        </span>
+        {urlHighlight.map((isHightlight, index) => {
+          return isHightlight == 1 ? (
+            <span key={index} className="text-orange-400">
+              {urlArr[index]}
+              <wbr />
+            </span>
+          ) : (
+            <span key={index}>
+              {urlArr[index]}
+              <wbr />
+            </span>
+          );
+        })}
       </div>
 
       <div className={"h-full "}>

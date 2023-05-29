@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import TopButton from './TopButton'
 
 export default function Template({children, isHomePage}) {
   return (
@@ -8,6 +9,7 @@ export default function Template({children, isHomePage}) {
       <Navbar isHomePage={isHomePage}/>
         {children}    
       <Footer />
+      <TopButton />
     </main>
   )
 }

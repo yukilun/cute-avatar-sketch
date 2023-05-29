@@ -8,8 +8,8 @@ import options from '@/public/options.json'
 import UrlBlock from '@/components/UrlBlock'
 import { IoIosOptions, IoMdClose } from 'react-icons/io'
 import { IoDiceOutline, IoDownloadOutline } from 'react-icons/io5'
-import OptionCategory from '@/components/OptionCategory'
-import OptionCard from '@/components/OptionCard'
+import OptionCategory from '@/components/avatar-maker/OptionCategory'
+import OptionCard from '@/components/avatar-maker/OptionCard'
 import { getRandomId } from '@/functions/helper'
 
 export default function AvatarMaker() {
@@ -29,7 +29,7 @@ export default function AvatarMaker() {
         
         <div className='w-full text-end md:hidden' >
             <button className='p-4' onClick={()=> setOpenOptions(!isOpenOptions)}>
-                {isOpenOptions ? <IoMdClose size={20}/> : <IoIosOptions size={20}/>}
+                {isOpenOptions ? <IoMdClose size={25}/> : <IoIosOptions size={25}/>}
             </button>
         </div>
 
