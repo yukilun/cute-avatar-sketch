@@ -1,6 +1,6 @@
 import RandomAvatar from "@/components/RandomAvatar";
 import Link from "next/link";
-import CodeBlock from "@/components/CodeBlock";
+import UrlBlock from "@/components/UrlBlock";
 import Template from "@/components/Template";
 
 import dir from "@/functions/helper.js";
@@ -21,14 +21,14 @@ export default function Home() {
 
           <div className="mb-4 text-base md:text-2xl text-slate-500 w-full flex flex-col items-center gap-2">
             Quick Random Generation: 
-            <CodeBlock code={`${process.env.PUBLIC_URL}/api/random`}/>
+            <UrlBlock urlArr={['/api', '/random']} urlHighlight={[0, 1]}/>
           </div>
             
           <div className="flex flex-col gap-4 md:gap-6 text-gray-800 text-xl md:text-4xl">
-            <Link href="" className="w-fit p-3 md:p-4 bg-yellow-200 rotate-2 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100">
-              Avatar Creator
+            <Link href="/avatar-maker" className="w-fit p-3 md:p-4 bg-yellow-200 rotate-2 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100">
+              Avatar Maker
             </Link>
-            <Link href="" className="w-fit p-3 md:p-4 bg-violet-200 -rotate-1 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100">
+            <Link href="/documentation" className="w-fit p-3 md:p-4 bg-violet-200 -rotate-1 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100">
               Documentation
             </Link>
           </div>

@@ -19,7 +19,7 @@ export default function CodeBlock({ code }) {
   return (
     <div
       className={
-        "flex max-w-full items-center justify-between gap-3 rounded-md p-1 text-sm text-gray-400 lg:text-base " +
+        "flex w-fit max-w-full items-center justify-between gap-3 rounded-md p-1 text-sm text-gray-400 lg:text-base " +
         (!isLoading && "bg-[#2d2d2d]")
       }
     >

@@ -2,20 +2,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { MdOutlineMenu, MdClose } from 'react-icons/md'
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Navlist() {
 
   const [isOpen, setOpen] = useState(false);
-  const router = useRouter();
-
+  const pathname = usePathname(); 
+  
   return (
     <>
       <div className="gap-2 text-gray-800 hidden lg:flex">
-        <Link href="" className="p-2 text-xl bg-yellow-200 rotate-6 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100">
-          Avatar Creator
+        <Link href="/avatar-maker" className="p-2 text-xl bg-yellow-200 rotate-6 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100">
+          Avatar Maker
         </Link>
-        <Link href="" className="p-2 text-xl bg-violet-200 -rotate-3 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100">
+        <Link href="/documentation" className="p-2 text-xl bg-violet-200 -rotate-3 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100">
           Documentation
         </Link>
       </div>
@@ -28,10 +28,10 @@ export default function Navlist() {
           {isOpen ? (<MdClose size={25}/>) : (<MdOutlineMenu size={25}/>)}
         </button>
         <div className={"fixed translate-y-[100px] right-5 z-50 text-gray-800 text-2xl flex flex-col justify-end gap-5 transition-all duration-500 " + (!isOpen && "opacity-0 translate-x-[150%]")}>
-          <Link href="" className={"p-3 bg-yellow-200 rotate-2 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100 hover:-translate-x-6 " + (router.pathname === "/avatar-creation" && "rotate-0 scale-100 shadow-lg")}>
-            Avatar Creator
+          <Link href="/avatar-maker" className={"p-3 bg-yellow-200 rotate-2 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100 hover:-translate-x-6 " + (pathname === "/avatar-creation" && "rotate-0 scale-100 shadow-lg")}>
+            Avatar Maker
           </Link>
-          <Link href="" className={"p-3 bg-violet-200 -rotate-2 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100 hover:-translate-x-6 " + (router.pathname === "/documentation" && "rotate-0 scale-100 shadow-lg")}>
+          <Link href="/documentation" className={"p-3 bg-violet-200 -rotate-2 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100 hover:-translate-x-6 " + (pathname === "/documentation" && "rotate-0 scale-100 shadow-lg")}>
             Documentation
           </Link>
         </div>

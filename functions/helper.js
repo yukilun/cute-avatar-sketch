@@ -6,7 +6,7 @@ export function getRandomId() {
 }
 
 export function getPngUrl(id) {
-    return `${process.env.PUBLIC_URL}/avatar/avatar_${id}.png`;
+    return `${process.env.NEXT_PUBLIC_URL}/avatar/avatar_${id}.png`;
 }
 
 export function getJson(id) {
