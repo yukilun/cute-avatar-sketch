@@ -13,7 +13,7 @@ export default function RandomAvatar() {
         const timer = setInterval(()=> {
             const newImgNum = getRandomId();
             setImgNum(newImgNum);
-        }, 1000);
+        }, 2000);
 
         return () => clearInterval(timer);
     }, [])
