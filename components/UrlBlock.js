@@ -1,10 +1,9 @@
 "use client";
-//break-all
 import React, { useState } from "react";
 import { BsClipboard, BsClipboardCheck } from "react-icons/bs";
 import Link from "next/link";
 
-export default function URLBlock({ urlArr, urlHighlight }) {
+export default function UrlBlock({ urlArr, urlHighlight }) {
   const [isCopied, setCopied] = useState(false);
   const url = process.env.NEXT_PUBLIC_URL + urlArr.join("");
 

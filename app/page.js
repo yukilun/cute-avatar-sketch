@@ -3,8 +3,6 @@ import Link from "next/link";
 import UrlBlock from "@/components/UrlBlock";
 import Template from "@/components/Template";
 
-import dir from "@/functions/helper.js";
-
 export default function Home() {
 
   return (

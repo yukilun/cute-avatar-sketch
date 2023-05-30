@@ -9,7 +9,7 @@ export default function Navbar({isHomePage = false}) {
     <div className="flex w-full justify-between gap-3 p-3 lg:px-6">
       
       <Link href="" className="app_logo flex items-center hover:opacity-80">
-        <Image src="/avatar/avatar_0406.png" width="100" height="100"className="w-[80px] md:w-[100px]"/>
+        <Image src="/avatar/avatar_0406.png" width="100" height="100"className="w-[80px] md:w-[100px]" alt="logo"/>
         <div className="app_name text-center text-lg font-extrabold uppercase md:text-3xl">
           Cute Avatar Sketch!
         </div>

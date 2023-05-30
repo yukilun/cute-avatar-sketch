@@ -11,7 +11,7 @@ export function getPngUrl(id) {
 
 export function getJson(id) {
     return {
-        id,
+        'options-id': id,
         'image-url': getPngUrl(id),
     };
 }
