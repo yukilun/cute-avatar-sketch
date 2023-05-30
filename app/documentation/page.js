@@ -14,8 +14,8 @@ export default function Documentation() {
         <div className='menu w-[180px] flex-shrink-0 hidden md:block relative'>
            <Menu />
         </div>
-        <div className='seperator hidden md:block w-0.5 bg-gray-400/20'>&nbsp;</div>
-        <div className='documentation flex-grow overflow-auto text-xl leading-relaxed max-h-full ml-10'>
+        <div className='seperator hidden md:block w-0.5 bg-gray-400/20 mr-10'>&nbsp;</div>
+        <div className='documentation flex-grow overflow-auto text-xl leading-relaxed max-h-full'>
             {/** Documentation content styling is provided in gloals.css */}
             <Intro />
             <hr/>
