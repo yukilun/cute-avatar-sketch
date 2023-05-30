@@ -1,9 +1,8 @@
 "use client"
 // this avatar-maker is mostly responsive (client-side rendering)
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Template from '@/components/Template'
-import Image from 'next/image'
 import options from '@/public/options.json'
 import UrlBlock from '@/components/UrlBlock'
 import { IoIosOptions, IoMdClose } from 'react-icons/io'
@@ -11,10 +10,12 @@ import { IoDiceOutline, IoDownloadOutline } from 'react-icons/io5'
 import OptionCategory from '@/components/avatar-maker/OptionCategory'
 import OptionCard from '@/components/avatar-maker/OptionCard'
 import { getRandomId } from '@/functions/helper'
+import { ClipLoader } from 'react-spinners'
 
 export default function AvatarMaker() {
 
     const [isOpenOptions, setOpenOptions] = useState(false);
+    const [isImgLoaded, setImgLoaded] = useState(true);
 
     const categories = ['facial-expression', 'hairstyle', 'facial-feature', 'accessory'];
     const [selectedCategory, setSelectedCategory] = useState('facial-expression');
@@ -22,6 +23,10 @@ export default function AvatarMaker() {
         'facial-expression': 0, 'hairstyle': 0, 'facial-feature': 0, 'accessory': 0
     })
     const id = '' + selectedOptions['facial-expression'] + selectedOptions['hairstyle'] + selectedOptions['facial-feature'] + selectedOptions['accessory']
+
+    useEffect(()=> {
+        console.log('isImgLoaded: ' + isImgLoaded);
+    },[isImgLoaded])
 
   return (
     <Template>
@@ -33,18 +38,30 @@ export default function AvatarMaker() {
             </button>
         </div>
 
-        <div className={'w-full max-h-full md:w-1/2 p-3 pb-6 flex flex-col justify-center items-center ' + (isOpenOptions && 'hidden md:h-auto md:opacity-100') }>
+        <div className={'w-full max-h-full md:w-1/2 p-3 pb-6 flex flex-col justify-center items-center ' + (isOpenOptions && 'hidden md:flex md:h-auto md:opacity-100') }>
             <div className='font-bold uppercase text-3xl pt-3 text-center'>Avatar Maker</div>
-            <div className='relative text-center flex-grow min-h-0' >
-                <Image key={`/avatar/avatar_${id}.png`} src={`/avatar/avatar_${id}.png`} width={450} height={450} alt={`avatar_${id}`} className='w-full h-full md:max-w-[450px] object-contain'/>
+            
+            <div className='relative text-center flex-grow min-h-0 w-full' >
+                <div className={'w-[450px] h-[450px] max-w-full max-h-full aspect-square relative mx-auto flex items-center justify-center'} >
+                    <img key={ `${id}_${new Date().getTime()}`} src={`/avatar/avatar_${id}.png`} alt={`avatar_${id}`} 
+                            className={'w-full h-full object-contain ' + (!isImgLoaded && 'hidden')} 
+                            onLoad={()=> setImgLoaded(true)}
+                    />
+                    <div className={(isImgLoaded && 'hidden')}>
+                        <ClipLoader color='#22d3ee' loading={!isImgLoaded}/>
+                    </div>
+                </div>
+
             </div>
-            <div className='text-center'>
+
+            <div className='text-center z-40'>
                 <span>Your Avatar URL:</span>
                 <UrlBlock urlArr={['/api', '/avatar',`/${id}`]} urlHighlight={[0, 1, 1]}/>
                 <div className='flex flex-wrap w-full justify-center pt-4 gap-3 text-white'>
                     <button className='flex items-center p-2 rounded-md bg-yellow-600 opacity-60 hover:opacity-100 '
                         onClick={()=> {
                             const randomId = getRandomId();
+                            setImgLoaded(false);
                             setSelectedOptions({
                                 'facial-expression': parseInt(randomId[0]), 'hairstyle': parseInt(randomId[1]), 'facial-feature': parseInt(randomId[2]), 'accessory': parseInt(randomId[3])
                             })
@@ -58,7 +75,6 @@ export default function AvatarMaker() {
                     </a>
                 </div>
             </div>
-
         </div>
 
         <div className={'w-full max-h-full md:w-1/2 md:py-5 flex flex-col text-xs sm:text-sm transition-all duration-1000 '+ (!isOpenOptions && 'h-0 opacity-0 md:h-auto md:opacity-100') }>
@@ -77,6 +93,7 @@ export default function AvatarMaker() {
                         return (
                             <OptionCard key={index} optionIndex={index} description={description} 
                                 selectedCategory={selectedCategory} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions}
+                                setImgLoaded={setImgLoaded}
                             />
                         );
                     })
