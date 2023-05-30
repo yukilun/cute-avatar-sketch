@@ -36,7 +36,7 @@ export default function AvatarMaker() {
         <div className={'w-full max-h-full md:w-1/2 p-3 pb-6 flex flex-col justify-center items-center ' + (isOpenOptions && 'hidden md:h-auto md:opacity-100') }>
             <div className='font-bold uppercase text-3xl pt-3 text-center'>Avatar Maker</div>
             <div className='relative text-center flex-grow min-h-0' >
-                <Image src={`/avatar/avatar_${id}.png`} width={450} height={450} alt={`avatar_${id}`} className='w-full h-full md:max-w-[450px] object-contain'/>
+                <Image key={`/avatar/avatar_${id}.png`} src={`/avatar/avatar_${id}.png`} width={450} height={450} alt={`avatar_${id}`} className='w-full h-full md:max-w-[450px] object-contain'/>
             </div>
             <div className='text-center'>
                 <span>Your Avatar URL:</span>

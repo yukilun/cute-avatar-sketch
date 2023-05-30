@@ -47,7 +47,7 @@ export default function ExampleRefresh({url, format}) {
                 data === 'fetching' ? (
                     <pre>Fetching...</pre>
                 ) : format === 'png' ? (
-                    <img src={data} alt="" className='max-h-full object-contain' />
+                    <img key={data} src={data} alt="" className='max-h-full object-contain' />
                 ) : data !== null ? (
                     <pre>{JSON.stringify(data, null, 2)}</pre>
                 ) : (
