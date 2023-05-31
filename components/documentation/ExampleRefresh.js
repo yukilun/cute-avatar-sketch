@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react'
 import { IoMdRefresh } from 'react-icons/io'
+import axios from 'axios';
 
 export default function ExampleRefresh({url, format}) {
 
@@ -14,11 +15,10 @@ export default function ExampleRefresh({url, format}) {
             // for regenerate purpose, add a useless time query params at the end to distinguish between each fetch
             return setData(process.env.NEXT_PUBLIC_URL + url + '?' + new Date().getTime()); 
 
-        const res = await fetch(process.env.NEXT_PUBLIC_URL + url);
-
-        if (!res.ok) return setData(null);
-     
-        return setData(await res.json());
+        axios.get(process.env.NEXT_PUBLIC_URL + url)
+            .then((res) => setData(res.data))
+            .catch((err)=> setData(null));
+            
     }, []);
 
     useEffect(()=> {
