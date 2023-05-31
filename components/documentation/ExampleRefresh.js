@@ -7,21 +7,20 @@ export default function ExampleRefresh({url, format}) {
 
     const [data, setData] = useState();
 
-    const fetchData = async() => {
-        setData('fetching');
-
-        if(format === 'png') 
-            // for regenerate purpose, add a useless time query params at the end to distinguish between each fetch
-            return setData(process.env.NEXT_PUBLIC_URL + url + '?' + new Date().getTime()); 
-
-        const res = await fetch(process.env.NEXT_PUBLIC_URL + url);
-
-        if (!res.ok) return setData(null);
-     
-        return setData(await res.json());
-    }
-
     useEffect(()=> {
+        const fetchData = async() => {
+            setData('fetching');
+    
+            if(format === 'png') 
+                // for regenerate purpose, add a useless time query params at the end to distinguish between each fetch
+                return setData(process.env.NEXT_PUBLIC_URL + url + '?' + new Date().getTime()); 
+    
+            const res = await fetch(process.env.NEXT_PUBLIC_URL + url);
+    
+            if (!res.ok) return setData(null);
+         
+            return setData(await res.json());
+        }
         fetchData();
     }, []);
 
