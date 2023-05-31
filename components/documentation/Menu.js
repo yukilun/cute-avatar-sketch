@@ -32,11 +32,11 @@ export default function Menu() {
     
   return (
     <div className='w-full md:flex flex-col justify-start items-start gap-4 text-sm font-semibold sticky top-10'>
-        <a href='#intro'className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'intro' && 'border-l-2 opacity-100')}>Introduction</a>
-        <a href='#single-specific'className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'single-specific' && 'border-l-2 opacity-100')}>Single Specific Avatar</a>
-        <a href='#single-random' className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'single-random' && 'border-l-2 opacity-100')}>Single Random Avatar</a>
-        <a href='#multi-random' className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'multi-random' && 'border-l-2 opacity-100')}>Multiple Random Avatars</a>
-        <a href='#options' className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'options' && 'border-l-2 opacity-100')}>Options List</a>
+        <a href='#intro'className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'intro' && 'border-l-2 !opacity-100')}>Introduction</a>
+        <a href='#single-specific'className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'single-specific' && 'border-l-2 !opacity-100')}>Single Specific Avatar</a>
+        <a href='#single-random' className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'single-random' && 'border-l-2 !opacity-100')}>Single Random Avatar</a>
+        <a href='#multi-random' className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'multi-random' && 'border-l-2 !opacity-100')}>Multiple Random Avatars</a>
+        <a href='#options' className={'border-cyan-400 pl-2 opacity-60 hover:opacity-100 ' + (currentSection === 'options' && 'border-l-2 !opacity-100')}>Options List</a>
     </div>
   )
 }
