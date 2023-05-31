@@ -1,13 +1,13 @@
 "use client"
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { IoMdRefresh } from 'react-icons/io'
 
 export default function ExampleRefresh({url, format}) {
 
     const [data, setData] = useState();
 
-    const fetchData = async() => {
+    const fetchData = useCallback(async()=> {
         setData('fetching');
 
         if(format === 'png') 
@@ -19,11 +19,11 @@ export default function ExampleRefresh({url, format}) {
         if (!res.ok) return setData(null);
      
         return setData(await res.json());
-    }
+    }, []);
 
     useEffect(()=> {
         fetchData();
-    }, []);
+    }, [fetchData]);
 
   return (
     <div className='example w-full h-[250px] bg-neutral-200 dark:bg-neutral-600 rounded-lg flex flex-col gap-3 p-3'>
