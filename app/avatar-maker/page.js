@@ -11,6 +11,7 @@ import OptionCategory from '@/components/avatar-maker/OptionCategory'
 import OptionCard from '@/components/avatar-maker/OptionCard'
 import { getRandomId } from '@/functions/helper'
 import { ClipLoader } from 'react-spinners'
+import Image from 'next/image'
 
 export default function AvatarMaker() {
 
@@ -42,7 +43,7 @@ export default function AvatarMaker() {
             <div className='font-bold uppercase text-3xl pt-3 text-center'>Avatar Maker</div>
             
             <div className='relative text-center flex-grow min-h-0 w-full' >
-                <div className={'w-[450px] h-[450px] max-w-full max-h-full aspect-square relative mx-auto flex items-center justify-center'} >
+                {/* <div className={'w-[450px] h-[450px] max-w-full max-h-full aspect-square relative mx-auto flex items-center justify-center'} >
                     <img key={ `${id}_${new Date().getTime()}`} src={`/avatar/avatar_${id}.png`} alt={`avatar_${id}`} 
                             className={'w-full h-full object-contain ' + (!isImgLoaded && 'hidden')} 
                             onLoad={()=> setImgLoaded(true)}
@@ -50,7 +51,16 @@ export default function AvatarMaker() {
                     <div className={(isImgLoaded && 'hidden')}>
                         <ClipLoader color='#22d3ee' loading={!isImgLoaded}/>
                     </div>
-                </div>
+                </div> */}
+                    <div className='w-full h-full max-w-[300px] max-h-[300px] mx-auto my-auto md:max-w-[450px] md:max-h-full'>
+                        <Image src={`/avatar/avatar_${id}.png`} alt={`avatar_${id}`} width={450} height={450}
+                                className={'w-full h-full object-contain ' + (!isImgLoaded && 'opacity-0')} 
+                                onLoad={()=> setImgLoaded(true)}
+                        />
+                        <div className={'absolute top-1/2 left-1/2 translate-y-1/2 -translate-x-1/2 ' + (isImgLoaded && 'opacity-0')}>
+                            <ClipLoader color='#22d3ee' loading={!isImgLoaded}/>
+                        </div>
+                    </div>
 
             </div>
 
@@ -61,11 +71,11 @@ export default function AvatarMaker() {
                     <button className='flex items-center p-2 rounded-md bg-yellow-600 opacity-60 hover:opacity-100 '
                         onClick={()=> {
                             const randomId = getRandomId();
+                            if(randomId === id) return;
                             setImgLoaded(false);
                             setSelectedOptions({
                                 'facial-expression': parseInt(randomId[0]), 'hairstyle': parseInt(randomId[1]), 'facial-feature': parseInt(randomId[2]), 'accessory': parseInt(randomId[3])
                             })
-                            console.log(selectedOptions);
                         }}  
                     >
                         <IoDiceOutline size={20}/>&nbsp;Random Avatar
