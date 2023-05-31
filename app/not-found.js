@@ -13,7 +13,7 @@ export default function NotFound() {
             </div>
             <div className='text-center text-xl'>Page Not Found!</div>
             <div className='text-center my-10 text-xl'>
-                <Link href="/" className="p-3 bg-yellow-200 text-gray-800 rotate-2 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100 hover:-translate-x-6 ">
+                <Link href="/" className="inline-block p-3 bg-cyan-200 text-gray-800 rotate-2 scale-90 shadow-md dark:shadow-white transition-all duration-50 hover:rotate-0 hover:scale-100 ">
                     Go To Home
                 </Link>
             </div>
