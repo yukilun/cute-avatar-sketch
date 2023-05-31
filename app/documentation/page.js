@@ -1,5 +1,5 @@
 import React from 'react'
-import TemplateFixedNavbar from '@/components/TemplateFixedNavbar'
+import Template from '@/components/Template'
 import Intro from '@/components/documentation/Intro'
 import SingleSpecific from '@/components/documentation/SingleSpecific'
 import SingleRandom from '@/components/documentation/SingleRandom'
@@ -9,7 +9,7 @@ import Menu from '@/components/documentation/Menu'
 
 export default function Documentation() {
   return (
-    <TemplateFixedNavbar>
+    <Template>
       <div className="documentation-container w-[90%] max-w-[1000px] mx-auto flex-grow flex justify-stretch gap-4 font-sans" >
         <div className='menu w-[180px] flex-shrink-0 hidden md:block relative'>
            <Menu />
@@ -28,6 +28,6 @@ export default function Documentation() {
             <Options />
         </div>
       </div> 
-    </TemplateFixedNavbar>
+    </Template>
   )
 }

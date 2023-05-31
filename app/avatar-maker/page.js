@@ -25,10 +25,6 @@ export default function AvatarMaker() {
     })
     const id = '' + selectedOptions['facial-expression'] + selectedOptions['hairstyle'] + selectedOptions['facial-feature'] + selectedOptions['accessory']
 
-    useEffect(()=> {
-        console.log('isImgLoaded: ' + isImgLoaded);
-    },[isImgLoaded])
-
   return (
     <Template>
       <div className="avatar-maker w-[90%] max-w-[1250px] min-h-[250px] md:max-h-[70vh] mx-auto flex flex-col md:flex-row md:items-stretch bg-[#f2eecb] shadow-2xl dark:bg-[#2e3239] dark:shadow-gray-700 " >
@@ -43,15 +39,6 @@ export default function AvatarMaker() {
             <div className='font-bold uppercase text-3xl pt-3 text-center'>Avatar Maker</div>
             
             <div className='relative text-center flex-grow min-h-0 w-full' >
-                {/* <div className={'w-[450px] h-[450px] max-w-full max-h-full aspect-square relative mx-auto flex items-center justify-center'} >
-                    <img key={ `${id}_${new Date().getTime()}`} src={`/avatar/avatar_${id}.png`} alt={`avatar_${id}`} 
-                            className={'w-full h-full object-contain ' + (!isImgLoaded && 'hidden')} 
-                            onLoad={()=> setImgLoaded(true)}
-                    />
-                    <div className={(isImgLoaded && 'hidden')}>
-                        <ClipLoader color='#22d3ee' loading={!isImgLoaded}/>
-                    </div>
-                </div> */}
                     <div className='w-full h-full max-w-[300px] max-h-[300px] mx-auto my-auto md:max-w-[450px] md:max-h-full'>
                         <Image src={`/avatar/avatar_${id}.png`} alt={`avatar_${id}`} width={450} height={450}
                                 className={'w-full h-full object-contain ' + (!isImgLoaded && 'opacity-0')} 
@@ -61,7 +48,6 @@ export default function AvatarMaker() {
                             <ClipLoader color='#22d3ee' loading={!isImgLoaded}/>
                         </div>
                     </div>
-
             </div>
 
             <div className='text-center z-40'>
