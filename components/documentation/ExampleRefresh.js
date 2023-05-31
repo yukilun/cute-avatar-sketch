@@ -1,29 +1,37 @@
 "use client"
 import Link from 'next/link';
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useDebugValue, useEffect, useState } from 'react'
 import { IoMdRefresh } from 'react-icons/io'
 import axios from 'axios';
 
 export default function ExampleRefresh({url, format}) {
 
     const [data, setData] = useState();
+    const [isImgLoaded, setImgLoaded] = useState(false);
 
     const fetchData = useCallback(async()=> {
         setData('fetching');
 
-        if(format === 'png') 
+        if(format === 'png') {
+            setImgLoaded(false);
             // for regenerate purpose, add a useless time query params at the end to distinguish between each fetch
             return setData(process.env.NEXT_PUBLIC_URL + url + '?' + new Date().getTime()); 
+        }
+
 
         axios.get(process.env.NEXT_PUBLIC_URL + url)
             .then((res) => setData(res.data))
             .catch((err)=> setData(null));
-            
+
     }, []);
 
     useEffect(()=> {
         fetchData();
     }, [fetchData]);
+
+    useEffect(()=> {
+        console.log(isImgLoaded);
+    },[isImgLoaded]);
 
   return (
     <div className='example w-full h-[250px] bg-neutral-200 dark:bg-neutral-600 rounded-lg flex flex-col gap-3 p-3'>
@@ -47,7 +55,10 @@ export default function ExampleRefresh({url, format}) {
                 data === 'fetching' ? (
                     <pre>Fetching...</pre>
                 ) : format === 'png' ? (
-                    <img key={data} src={data} alt="" className='max-h-full object-contain' />
+                    <div className='h-full w-full'>
+                        <pre className={(isImgLoaded && 'hidden')}>Fetching...</pre>
+                        <img key={data} src={data} alt="" className='max-h-full object-contain ' onLoad={()=> setImgLoaded(true)} />
+                    </div>
                 ) : data !== null ? (
                     <pre>{JSON.stringify(data, null, 2)}</pre>
                 ) : (
