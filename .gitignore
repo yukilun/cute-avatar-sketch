@@ -33,3 +33,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# not-found.js (cannot work properly on Netlify)
+/app/not-found.js
