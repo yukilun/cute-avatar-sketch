@@ -14,7 +14,7 @@ export default function OptionCard({optionIndex, description, selectedCategory, 
           setSelectedOptions({...selectedOptions,  [selectedCategory]: optionIndex});
         }}
     > 
-        <Image src={`/option/avatar-${selectedCategory}-${optionIndex}.png`} width={512} height={512} alt={description}/>
+        <Image src={`/option/avatar-${selectedCategory}-${optionIndex}.png`} width={512} height={512} alt={description} priority/>
         <div>{optionIndex + ' : ' + description}</div>   
     </button>
   )

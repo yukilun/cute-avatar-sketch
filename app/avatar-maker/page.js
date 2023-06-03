@@ -40,7 +40,7 @@ export default function AvatarMaker() {
             
             <div className='relative text-center flex-grow min-h-0 w-full' >
                     <div className='w-full h-full max-w-[300px] max-h-[300px] mx-auto my-auto md:max-w-[450px] md:max-h-full'>
-                        <Image src={`/avatar/avatar_${id}.png`} alt={`avatar_${id}`} width={450} height={450}
+                        <Image src={`/avatar/avatar_${id}.png`} alt={`avatar_${id}`} width={450} height={450} priority
                                 className={'w-full h-full object-contain ' + (!isImgLoaded && 'opacity-0')} 
                                 onLoad={()=> setImgLoaded(true)}
                         />

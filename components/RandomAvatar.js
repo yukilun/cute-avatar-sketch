@@ -20,7 +20,7 @@ export default function RandomAvatar() {
 
   return (
     <div className='-z-50 animate-bounce flex-grow max-w-[60%]'>
-      <Image src={`/avatar/avatar_${imgNum}.png`} alt='random avatar image' width={600} height={600}/>
+      <Image src={`/avatar/avatar_${imgNum}.png`} alt='random avatar image' width={600} height={600} priority/>
     </div>
   )
 }
