@@ -29,10 +29,6 @@ export default function ExampleRefresh({url, format}) {
         fetchData();
     }, [fetchData]);
 
-    useEffect(()=> {
-        console.log(isImgLoaded);
-    },[isImgLoaded]);
-
   return (
     <div className='example w-full h-[250px] bg-neutral-200 dark:bg-neutral-600 rounded-lg flex flex-col gap-3 p-3'>
         <div className='top-bar w-full flex items-center'>
