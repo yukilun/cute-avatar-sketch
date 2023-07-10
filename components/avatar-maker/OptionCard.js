@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -9,13 +9,13 @@ export default function OptionCard({optionIndex, description, selectedCategory, 
     const isSelected = selectedOptions[selectedCategory] === optionIndex ;
     const [isOptionReady, setIsOptionReady] = useState(true);
 
-    const onOptionLoadStart= () => {
-      setIsOptionReady(false);
-    }
-
     const onOptionLoaded = () => {
       setIsOptionReady(true);
     }
+
+    useEffect(()=> {
+      setIsOptionReady(false);
+    }, [selectedCategory]);
 
   return (
     <button 
@@ -33,7 +33,7 @@ export default function OptionCard({optionIndex, description, selectedCategory, 
             </div>
           )
         }
-        <Image src={`/option/avatar-${selectedCategory}-${optionIndex}.png`} width={512} height={512} alt={description} priority onLoadStart={onOptionLoadStart} onLoad={onOptionLoaded}/>
+        <Image src={`/option/avatar-${selectedCategory}-${optionIndex}.png`} width={512} height={512} alt={description} priority onLoad={onOptionLoaded}/>
         <div>{optionIndex + ' : ' + description}</div>   
     </button>
   )
