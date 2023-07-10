@@ -33,7 +33,7 @@ export default function OptionCard({optionIndex, description, selectedCategory, 
             </div>
           )
         }
-        <Image src={`/option/avatar-${selectedCategory}-${optionIndex}.png`} width={512} height={512} alt={description} priority onLoad={onOptionLoaded}/>
+        <Image className={!isOptionReady && 'h-0'} src={`/option/avatar-${selectedCategory}-${optionIndex}.png`} width={512} height={512} alt={description} priority onLoad={onOptionLoaded}/>
         <div>{optionIndex + ' : ' + description}</div>   
     </button>
   )
