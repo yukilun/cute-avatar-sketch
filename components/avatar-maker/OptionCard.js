@@ -1,9 +1,21 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import Image from 'next/image'
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function OptionCard({optionIndex, description, selectedCategory, selectedOptions, setSelectedOptions, setImgLoaded}) {
 
     const isSelected = selectedOptions[selectedCategory] === optionIndex ;
+    const [isOptionReady, setIsOptionReady] = useState(true);
+
+    const onOptionLoadStart= () => {
+      setIsOptionReady(false);
+    }
+
+    const onOptionLoaded = () => {
+      setIsOptionReady(true);
+    }
 
   return (
     <button 
@@ -14,7 +26,14 @@ export default function OptionCard({optionIndex, description, selectedCategory, 
           setSelectedOptions({...selectedOptions,  [selectedCategory]: optionIndex});
         }}
     > 
-        <Image src={`/option/avatar-${selectedCategory}-${optionIndex}.png`} width={512} height={512} alt={description} priority/>
+        {
+          !isOptionReady && (
+            <div className='w-full aspect-square flex flex-col justify-center items-center'>
+              <ClipLoader color='#22d3ee' loading={!isOptionReady}/>
+            </div>
+          )
+        }
+        <Image src={`/option/avatar-${selectedCategory}-${optionIndex}.png`} width={512} height={512} alt={description} priority onLoadStart={onOptionLoadStart} onLoad={onOptionLoaded}/>
         <div>{optionIndex + ' : ' + description}</div>   
     </button>
   )
